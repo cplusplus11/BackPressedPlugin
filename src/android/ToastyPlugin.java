@@ -36,6 +36,32 @@ public class ToastyPlugin extends CordovaPlugin {
       // Send a positive result to the callbackContext
       PluginResult pluginResult = new PluginResult(PluginResult.Status.OK);
       callbackContext.sendPluginResult(pluginResult);
+    
+      //aqui
+      public void onBackPressed(){
+
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Si presionas 2 veces saldrás de la app", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 1000);
+
+    }
+
+
+    boolean doubleBackToExitPressedOnce = false;
+    
+    
       return true;
   }
 }
