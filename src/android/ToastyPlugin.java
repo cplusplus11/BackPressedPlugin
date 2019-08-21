@@ -9,7 +9,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 public class ToastyPlugin extends CordovaPlugin {
+
   private static final String DURATION_LONG = "long";
+
   @Override
   public boolean execute(String action, JSONArray args,
     final CallbackContext callbackContext) {
@@ -38,4 +40,26 @@ public class ToastyPlugin extends CordovaPlugin {
       callbackContext.sendPluginResult(pluginResult);
       return true;
   }
+
+  boolean doubleBackToExitPressedOnce = false;
+
+public void onBackPressed(){
+
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Si presionas 2 veces saldrás de la app", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 1000);
+
+    }
 }
