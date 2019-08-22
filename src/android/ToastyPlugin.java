@@ -41,7 +41,7 @@ public class ToastyPlugin extends CordovaPlugin {
       callbackContext.sendPluginResult(pluginResult);
       return true;
   }
-
+@Override
 function onDeviceReady() {
 
 Toast.makeText(this, "Holi", Toast.LENGTH_SHORT).show();
