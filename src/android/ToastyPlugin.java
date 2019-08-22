@@ -15,37 +15,10 @@ public class ToastyPlugin extends CordovaPlugin {
   
   @Override
   public boolean execute(String action, JSONArray args,
-    final CallbackContext callbackContext) {
-      // Verify that the user sent a 'show' action
-      if (!action.equals("show")) {
-        callbackContext.error("\"" + action + "\" is not a recognized action.");
-        return false;
-      }
-      String message;
-      String duration;
-      try {
-        JSONObject options = args.getJSONObject(0);
-        message = options.getString("message");
-        duration = options.getString("duration");
-      } catch (JSONException e) {
-        callbackContext.error("Error encountered: " + e.getMessage());
-        return false;
-      }
-      // Create the toast
-      Toast toast = Toast.makeText(cordova.getActivity(), "desde git",
-        DURATION_LONG.equals(duration) ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT);
-      // Display toast
-      toast.show();
-      // Send a positive result to the callbackContext
-      PluginResult pluginResult = new PluginResult(PluginResult.Status.OK);
-      callbackContext.sendPluginResult(pluginResult);
+      Toast.makeText(this, "Holi", Toast.LENGTH_SHORT).show();
       return true;
   }
-@Override
-function onDeviceReady() {
 
-Toast.makeText(this, "Holi", Toast.LENGTH_SHORT).show();
-}
   
 
 }
