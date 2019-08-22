@@ -14,7 +14,8 @@ public class ToastyPlugin extends CordovaPlugin {
   boolean doubleBackToExitPressedOnce = false;
   
   @Override
-  public boolean execute(String action, JSONArray args,
+  public boolean execute(String action, JSONArray args,final CallbackContext callbackContext) {
+
       Toast.makeText(this, "Holi", Toast.LENGTH_SHORT).show();
       return true;
   }
