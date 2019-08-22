@@ -16,7 +16,8 @@ public class ToastyPlugin extends CordovaPlugin {
   @Override
   public boolean execute(String action, JSONArray args,final CallbackContext callbackContext) {
       
-    
+    Toast toast1 = Toast.makeText(this, "desde git",Toast.LENGTH_SHORT);
+    toast1.show();
    // Verify that the user sent a 'show' action
       if (!action.equals("show")) {
         callbackContext.error("\"" + action + "\" is not a recognized action.");
