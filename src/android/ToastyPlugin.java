@@ -42,7 +42,9 @@ public class ToastyPlugin extends CordovaPlugin {
       return true;
   }
 
+  public void hola{
+    // nada
+  }
   
-
 
 }
