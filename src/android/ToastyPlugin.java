@@ -16,7 +16,7 @@ public class ToastyPlugin extends CordovaPlugin {
   @Override
   public boolean execute(String action, JSONArray args,final CallbackContext callbackContext) {
       
-    Toast toast1 = Toast.makeText(cordova.getActivity(), "Holi!",Toast.LENGTH_SHORT);
+    Toast toast1 = Toast.makeText(cordova.getActivity(), "Holaaaaaaaa!",Toast.LENGTH_SHORT);
     toast1.show();
     
       return true;
