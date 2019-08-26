@@ -22,15 +22,22 @@ public class ToastyPlugin extends CordovaPlugin {
       callbackContext.error("\"" + action + "\" is not a recognized action.");
       return false;
     }else{
-      Toast toast1 = Toast.makeText(cordova.getActivity(), "Hi From BackPressedPlugin! ",Toast.LENGTH_SHORT);
-      toast1.show();
+      
+      callToast();
+      
       PluginResult pluginResult = new PluginResult(PluginResult.Status.OK);
       callbackContext.sendPluginResult(pluginResult);
       return true;
     }
-    
-   
-    
-    
+     
   }
+  
+  public void callToast(){
+  
+    Toast toast1 = Toast.makeText(cordova.getActivity(), "Call BackPressedPlugin ! ",Toast.LENGTH_SHORT);
+      toast1.show();
+  
+  }
+  
+  
 }
