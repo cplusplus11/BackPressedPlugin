@@ -22,7 +22,7 @@ public class ToastyPlugin extends CordovaPlugin {
       callbackContext.error("\"" + action + "\" is not a recognized action.");
       return false;
     }else{
-      Toast toast1 = Toast.makeText(cordova.getActivity(), "Holaaaaaaaa!",Toast.LENGTH_SHORT);
+      Toast toast1 = Toast.makeText(cordova.getActivity(), "Hi From BackPressedPlugin !",Toast.LENGTH_SHORT);
       toast1.show();
       PluginResult pluginResult = new PluginResult(PluginResult.Status.OK);
       callbackContext.sendPluginResult(pluginResult);
