@@ -16,12 +16,21 @@ public class ToastyPlugin extends CordovaPlugin {
   @Override
   public boolean execute(String action, JSONArray args,final CallbackContext callbackContext) {
       
-    Toast toast1 = Toast.makeText(cordova.getActivity(), "Holaaaaaaaa!",Toast.LENGTH_SHORT);
-    toast1.show();
     
+    
+    if (!action.equals("show")) {
+      callbackContext.error("\"" + action + "\" is not a recognized action.");
+      return false;
+    }else{
+      Toast toast1 = Toast.makeText(cordova.getActivity(), "Holaaaaaaaa!",Toast.LENGTH_SHORT);
+      toast1.show();
+      PluginResult pluginResult = new PluginResult(PluginResult.Status.OK);
+      callbackContext.sendPluginResult(pluginResult);
       return true;
+    }
+    
+   
+    
+    
   }
-
-  
-
 }
