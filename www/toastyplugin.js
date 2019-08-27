@@ -4,9 +4,7 @@ function ToastyPlugin() {}
 // The function that passes work along to native shells
 // Message is a string, duration may be 'long' or 'short'
 ToastyPlugin.prototype.show = function(message, successCallback, errorCallback) {
-  var options = {};
-  options.message = message;
-  cordova.exec(successCallback, errorCallback, 'ToastyPlugin', 'show', [options]);
+  cordova.exec(successCallback, errorCallback, 'ToastyPlugin', 'show', message);
 }
 
 // Installation constructor that binds ToastyPlugin to window
