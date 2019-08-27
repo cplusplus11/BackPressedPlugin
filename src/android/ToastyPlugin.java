@@ -45,7 +45,7 @@ public class ToastyPlugin extends CordovaPlugin {
   
   public void callToast(String valor){
   
-    Toast toast1 = Toast.makeText(cordova.getActivity(), "Call BackPressedPlugin !"  + valor,Toast.LENGTH_SHORT);
+    Toast toast1 = Toast.makeText(cordova.getActivity(),valor,Toast.LENGTH_SHORT);
       toast1.show();
   
   }
