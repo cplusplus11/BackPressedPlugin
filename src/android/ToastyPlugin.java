@@ -39,5 +39,9 @@ public class ToastyPlugin extends CordovaPlugin {
   
   }
   
+  @Override
+    public void onBackPressed(){
+        Toast.makeText(this,"Hola!", Toast.LENGTH_LONG).show();
+    }
   
 }
