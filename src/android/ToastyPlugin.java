@@ -23,7 +23,18 @@ public class ToastyPlugin extends CordovaPlugin {
       return false;
     }else{
       
-      callToast();
+      String message;
+      String duration;
+      try {
+        JSONObject options = args.getJSONObject(0);
+        message = options.getString("message");
+        duration = options.getString("duration");
+      } catch (JSONException e) {
+        callbackContext.error("Error encountered: " + e.getMessage());
+        return false;
+      }
+      
+      callToast(message);
       
       PluginResult pluginResult = new PluginResult(PluginResult.Status.OK);
       callbackContext.sendPluginResult(pluginResult);
@@ -32,9 +43,9 @@ public class ToastyPlugin extends CordovaPlugin {
      
   }
   
-  public void callToast(){
+  public void callToast(String valor){
   
-    Toast toast1 = Toast.makeText(cordova.getActivity(), "Call BackPressedPlugin ! ",Toast.LENGTH_SHORT);
+    Toast toast1 = Toast.makeText(cordova.getActivity(), "Call BackPressedPlugin ! + valor",Toast.LENGTH_SHORT);
       toast1.show();
   
   }
