@@ -11,17 +11,17 @@ import org.json.JSONObject;
 public class ToastyPlugin extends CordovaPlugin {
 
   private static final String DURATION_LONG = "long";
-  boolean doubleBackToExitPressedOnce = false;
-  
+ 
   @Override
   public boolean execute(String action, JSONArray args,final CallbackContext callbackContext) {
-      
-    
-    
+     
     if (!action.equals("show")) {
       callbackContext.error("\"" + action + "\" is not a recognized action.");
       return false;
     }else{
+      
+      Toast toast1 = Toast.makeText(cordova.getActivity(), "Call BackPressedPlugin !",Toast.LENGTH_SHORT);
+      toast1.show();
       
       String message;
       String duration;
@@ -40,12 +40,14 @@ public class ToastyPlugin extends CordovaPlugin {
       callbackContext.sendPluginResult(pluginResult);
       return true;
     }
-     
-  }
+	
+	}
+	
+	public void callToast(String valor){
   
-  public void callToast(String valor){
-  
-    Toast toast1 = Toast.makeText(cordova.getActivity(), "Call BackPressedPlugin !",Toast.LENGTH_SHORT);
+    Toast toast1 = Toast.makeText(cordova.getActivity(), "Callll BackPressedPlugin !",Toast.LENGTH_SHORT);
       toast1.show();
   
+	}
+     
   }
