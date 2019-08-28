@@ -23,9 +23,6 @@ public class ToastyPlugin extends CordovaPlugin {
       return false;
     }else{
       
-      Toast toast1 = Toast.makeText(cordova.getActivity(), "Call BackPressedPlugin !",Toast.LENGTH_SHORT);
-      toast1.show();
-      
       String message;
       String duration;
       try {
@@ -46,13 +43,22 @@ public class ToastyPlugin extends CordovaPlugin {
 }
 	
   public void callToast(String valor){
+	  
+	if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+	  
+	this.doubleBackToExitPressedOnce = true;
+	Toast toast1 = Toast.makeText(cordova.getActivity(), valor ,Toast.LENGTH_SHORT);
+      	toast1.show();
+	  
 	new Handler().postDelayed(new Runnable() {
 
             @Override
             public void run() {
-                doubleBackToExitPressedOnce=true;
-		Toast toast1 = Toast.makeText(cordova.getActivity(), doubleBackToExitPressedOnce + valor ,Toast.LENGTH_SHORT);
-      		toast1.show();
+                doubleBackToExitPressedOnce=false;
+		
             }
         }, 1000);  
 	  
