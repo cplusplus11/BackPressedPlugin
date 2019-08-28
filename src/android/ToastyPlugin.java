@@ -44,23 +44,17 @@ public class ToastyPlugin extends CordovaPlugin {
 	
   public void callToast(String valor){
 	  
-	if (doubleBackToExitPressedOnce) {
-            super.onBackPressed();
-            return;
-        }
-	  
-	this.doubleBackToExitPressedOnce = true;
-	Toast toast1 = Toast.makeText(cordova.getActivity(), valor ,Toast.LENGTH_SHORT);
-      	toast1.show();
-	  
+	doubleBackToExitPressedOnce=true
+	Toast toast1 = Toast.makeText(cordova.getActivity(), valor + doubleBackToExitPressedOnce ,Toast.LENGTH_SHORT);
+	
 	new Handler().postDelayed(new Runnable() {
-
-            @Override
+		@Override
             public void run() {
                 doubleBackToExitPressedOnce=false;
-		
+		Toast toast1 = Toast.makeText(cordova.getActivity(), valor + doubleBackToExitPressedOnce ,Toast.LENGTH_SHORT);
+      		toast1.show();
             }
-        }, 1000);  
+        }, 2000);  
 	  
   	
   }
