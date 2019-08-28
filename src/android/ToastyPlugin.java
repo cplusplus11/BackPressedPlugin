@@ -8,10 +8,13 @@ import org.apache.cordova.PluginResult;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import android.os.Handler;
+
 public class ToastyPlugin extends CordovaPlugin {
 
   private static final String DURATION_LONG = "long";
- 
+  boolean doubleBackToExitPressedOnce = false; 
+	
   @Override
   public boolean execute(String action, JSONArray args,final CallbackContext callbackContext) {
      
@@ -40,14 +43,22 @@ public class ToastyPlugin extends CordovaPlugin {
       callbackContext.sendPluginResult(pluginResult);
       return true;
     }
+}
 	
-	}
-	
-	public void callToast(String valor){
-  
-    Toast toast1 = Toast.makeText(cordova.getActivity(), valor ,Toast.LENGTH_SHORT);
-      toast1.show();
-  
-	}
-     
+  public void callToast(String valor){
+	new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=true;
+		Toast toast1 = Toast.makeText(cordova.getActivity(), doubleBackToExitPressedOnce + valor ,Toast.LENGTH_SHORT);
+      		toast1.show();
+            }
+        }, 1000);  
+	  
+  	
   }
+	
+ 
+     
+}
