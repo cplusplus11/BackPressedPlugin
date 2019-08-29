@@ -14,7 +14,7 @@ public class ToastyPlugin extends CordovaPlugin {
 
   private static final String DURATION_LONG = "long";
   boolean doubleBackToExitPressedOnce = false; 
-  private boolean flag = false;	
+  private boolean bandera = false;	
   @Override
   public boolean execute(String action, JSONArray args,final CallbackContext callbackContext) {
      
@@ -42,10 +42,10 @@ public class ToastyPlugin extends CordovaPlugin {
     }
 }
 	
-  public void callToast(String valor, boolean flag){
+  public void callToast(String valor, boolean bandera){
 	 
-	doubleBackToExitPressedOnce = true;
-	Toast toast1 = Toast.makeText(cordova.getActivity(), valor + flag ,Toast.LENGTH_SHORT);
+	//doubleBackToExitPressedOnce = true;
+	Toast toast1 = Toast.makeText(cordova.getActivity(), valor + bandera ,Toast.LENGTH_SHORT);
       	toast1.show(); 
 	//doubleBackToExitPressedOnce=true
 	//Toast toast1 = Toast.makeText(cordova.getActivity(), valor + doubleBackToExitPressedOnce ,Toast.LENGTH_SHORT);
@@ -55,8 +55,8 @@ public class ToastyPlugin extends CordovaPlugin {
 		@Override
             public void run() {
                 //doubleBackToExitPressedOnce=false;
-		    flag = false;
-		Toast toast1 = Toast.makeText(cordova.getActivity(), valor + flag ,Toast.LENGTH_SHORT);
+		 bandera = false;
+		Toast toast1 = Toast.makeText(cordova.getActivity(), valor + bandera ,Toast.LENGTH_SHORT);
       		toast1.show();
             }
         }, 1500);  
