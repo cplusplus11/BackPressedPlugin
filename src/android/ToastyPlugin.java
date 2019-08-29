@@ -60,7 +60,7 @@ public class ToastyPlugin extends CordovaPlugin {
             public void run() {
                 bandera = false;
             }
-        }, 1500);  
+        }, 5000);  
 	  
   	
   }
