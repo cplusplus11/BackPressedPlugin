@@ -44,6 +44,12 @@ public class ToastyPlugin extends CordovaPlugin {
 	
   public void callToast(String valor, boolean recibido){
 	 
+	if(bandera){
+	  Toast toast1 = Toast.makeText(cordova.getActivity(), "Presionaste 2 veces",Toast.LENGTH_SHORT);
+      	toast1.show();  
+	}  
+	  
+	  
 	bandera = recibido;
 	Toast toast1 = Toast.makeText(cordova.getActivity(), valor,Toast.LENGTH_SHORT);
       	toast1.show(); 
@@ -53,9 +59,6 @@ public class ToastyPlugin extends CordovaPlugin {
 		@Override
             public void run() {
                 bandera = false;
-		    
-		//Toast toast1 = Toast.makeText(cordova.getActivity(), valor + bandera ,Toast.LENGTH_SHORT);
-      		//toast1.show();
             }
         }, 1500);  
 	  
