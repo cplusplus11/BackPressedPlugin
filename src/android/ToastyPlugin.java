@@ -13,8 +13,8 @@ import android.os.Handler;
 public class ToastyPlugin extends CordovaPlugin {
 
   private static final String DURATION_LONG = "long";
-  boolean doubleBackToExitPressedOnce = false; 
-  private boolean bandera = false;	
+  private boolean bandera = false;
+	
   @Override
   public boolean execute(String action, JSONArray args,final CallbackContext callbackContext) {
      
@@ -45,19 +45,17 @@ public class ToastyPlugin extends CordovaPlugin {
   public void callToast(String valor, boolean recibido){
 	 
 	bandera = recibido;
-	Toast toast1 = Toast.makeText(cordova.getActivity(), valor + bandera,Toast.LENGTH_SHORT);
+	Toast toast1 = Toast.makeText(cordova.getActivity(), valor,Toast.LENGTH_SHORT);
       	toast1.show(); 
-	//doubleBackToExitPressedOnce=true
-	//Toast toast1 = Toast.makeText(cordova.getActivity(), valor + doubleBackToExitPressedOnce ,Toast.LENGTH_SHORT);
-	//toast1.show();
+	
 	  
 	new Handler().postDelayed(new Runnable() {
 		@Override
             public void run() {
-                //doubleBackToExitPressedOnce=false;
-		 bandera = false;
-		Toast toast1 = Toast.makeText(cordova.getActivity(), valor + bandera ,Toast.LENGTH_SHORT);
-      		toast1.show();
+                bandera = false;
+		    
+		//Toast toast1 = Toast.makeText(cordova.getActivity(), valor + bandera ,Toast.LENGTH_SHORT);
+      		//toast1.show();
             }
         }, 1500);  
 	  
