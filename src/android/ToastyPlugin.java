@@ -44,8 +44,8 @@ public class ToastyPlugin extends CordovaPlugin {
 	
   public void callToast(String valor, boolean recibido){
 	 
-	//doubleBackToExitPressedOnce = true;
-	Toast toast1 = Toast.makeText(cordova.getActivity(), valor + recibido,Toast.LENGTH_SHORT);
+	bandera = recibido;
+	Toast toast1 = Toast.makeText(cordova.getActivity(), valor + bandera,Toast.LENGTH_SHORT);
       	toast1.show(); 
 	//doubleBackToExitPressedOnce=true
 	//Toast toast1 = Toast.makeText(cordova.getActivity(), valor + doubleBackToExitPressedOnce ,Toast.LENGTH_SHORT);
