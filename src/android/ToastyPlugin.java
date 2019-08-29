@@ -14,7 +14,7 @@ public class ToastyPlugin extends CordovaPlugin {
 
   private static final String DURATION_LONG = "long";
   boolean doubleBackToExitPressedOnce = false; 
-	
+  private boolean flag = false;	
   @Override
   public boolean execute(String action, JSONArray args,final CallbackContext callbackContext) {
      
